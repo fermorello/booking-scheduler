@@ -1,5 +1,5 @@
+import React, { useMemo } from 'react'
 import moment from 'moment';
-import React from 'react'
 import { dateDifference } from '../../helpers/dates';
 import useBooking from '../../hooks/useBooking';
 import useConfiguration from '../../hooks/useConfiguration';
@@ -12,20 +12,20 @@ function BookingComponent(
   }: any
 ) {
   const {
-    tableWidth,
+    dimension,
     startRangeDate,
     columns,
+    bookingColors,
+    onBookingClick
   } = useConfiguration();
-  const columnHours = columns.length;
-  const dimension = (tableWidth) / columnHours;
-
+  const columnHours = useMemo(() => columns.length, []);
   const xPosition = useBooking({ reservation });
 
   return (
     <>
       {xPosition?.duration > 0 && (
         <ReservationItem
-          background="#00c100db"
+          background={bookingColors[String(reservation.status.toLowerCase())]}
           dimension={dimension}
           day={dateDifference(reservation.startTime, moment(startRangeDate).format('YYYY/MM/DD HH:mm:ss'), 'days', false)}
           start={xPosition.start}
@@ -33,7 +33,7 @@ function BookingComponent(
           index={index}
           title={`Reserva ${reservation.id} - ${moment(reservation.startTime).format('DD/MM/YYYY HH:mm')} to ${moment(reservation.endTime).format('DD/MM/YYYY HH:mm')}`}
           columnHours={columnHours}
-          onClick={() => console.log(reservation)}
+          onClick={() => onBookingClick(reservation)}
         >
           {reservation.id}
         </ReservationItem>
