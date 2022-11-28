@@ -1,7 +1,6 @@
 export type DateString = string;
 
-
-type Status = 'ACTIVE' | 'STARTED' | 'COMPLETE';
+type Status = 'ACTIVE' | 'STARTED' | 'COMPLETE' | null | string;
 
 export interface Booking {
   id: string;
