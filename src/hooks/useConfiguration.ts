@@ -1,9 +1,9 @@
 import React from 'react'
-import { configuration } from '../BookingScheduler';
+import { configuration } from '../context';
 import { Configuration } from '../types/configuration';
 
 function useConfiguration() {
-  const configurationData: Configuration = React.useContext(configuration);
+  const configurationData: Configuration | null = React.useContext(configuration);
   return { ...configurationData };
 }
 
