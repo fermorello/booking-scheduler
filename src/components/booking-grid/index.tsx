@@ -1,13 +1,13 @@
 import React from 'react';
 import useConfiguration from '../../hooks/useConfiguration';
-import { Row, BookingData, Booking } from '../../types';
+import { Row } from '../../types';
 import CanvasTable from '../canvas-table';
-import { ColumnsComponent, RowsComponent, BookingComponent } from '../index'
+import { ColumnsComponent, RowsComponent, BookingComponent } from '.././index'
 import { BookingContainer, Container, DataContainer, DataWrapper, Wrapper } from './styled';
 
 interface DataGridProps {
   rows: Row;
-  bookingData: BookingData;
+  bookingData: any;
 }
 
 function BookingGrid({ rows, bookingData }: DataGridProps) {
@@ -24,9 +24,9 @@ function BookingGrid({ rows, bookingData }: DataGridProps) {
           <DataWrapper>
             <CanvasTable rows={rows} />
             <BookingContainer>
-              {Object.values(bookingData).map((reservations: Booking[], index: number) => (
+              {Object.values(bookingData).map((reservations: any, index: number) => (
                 reservations
-                  .map((reservation: Booking) => (
+                  .map((reservation: any) => (
                     <BookingComponent
                       reservation={reservation}
                       index={index}
