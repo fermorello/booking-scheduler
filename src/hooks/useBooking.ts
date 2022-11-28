@@ -1,4 +1,3 @@
-import React from 'react'
 import moment from 'moment';
 import { dateDifference, durationBetweenTwoDatesInHours, hourFormatter } from '../helpers/dates';
 import useConfiguration from './useConfiguration';

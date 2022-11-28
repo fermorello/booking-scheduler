@@ -2,7 +2,6 @@ import React from 'react'
 import moment from 'moment';
 import { translate } from '../../helpers/translate';
 import useConfiguration from '../../hooks/useConfiguration';
-import { Column } from '../../types';;
 import { TableHead, TableHeading, TableWithProps } from '../../styled';
 import { HeaderContainer, HeaderWhiteSpace, DateColumn } from './styled';
 

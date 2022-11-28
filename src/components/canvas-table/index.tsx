@@ -1,7 +1,7 @@
 import React from 'react';
 import useConfiguration from '../../hooks/useConfiguration';
 import { TableHeading, TableRow, TableWithProps } from '../../styled';
-import { Column, Row } from '../../types';
+import { Row } from '../../types';
 import { GridTableCell } from './styled';
 
 function CanvasTable({ rows }: any) {

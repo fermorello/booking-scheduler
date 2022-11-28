@@ -18,7 +18,7 @@ function BookingComponent(
     bookingColors,
     onBookingClick
   } = useConfiguration();
-  const columnHours = useMemo(() => columns.length, []);
+  const columnHours = useMemo(() => columns?.length, []);
   const xPosition = useBooking({ reservation });
 
   return (

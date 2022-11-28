@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Table } from '../../styled';
 
 interface HeaderContainerProps {
   marginLeft?: number;
