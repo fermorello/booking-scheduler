@@ -1,30 +1,45 @@
 {
-  "name": "booking-scheduler",
-  "private": true,
-  "version": "0.0.0",
+  "name": "bookings-scheduler",
+  "description": "Basic bookings scheduler",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fermorello/booking-scheduler"
+  },
+  "author": "Fermín Morello",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+    "build": "tsc && vite build",
+    "test": "vitest run",
+    "watch": "vitest",
+    "coverage": "vitest run --coverage"
   },
-  "lint-staged": {
-    "*.{ts,js,tsx,jsx,json}": [
-      "prettier --write",
-      "git add"
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es2020": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
     ],
-    "*.js": "eslint --cache --fix",
-    "*.ts": "eslint --cache --fix"
+    "parserOptions": {
+      "sourceType": "module"
+    }
   },
   "dependencies": {
+    "@rollup/plugin-typescript": "^10.0.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rollup-plugin-typescript-paths": "^1.4.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@eslint/create-config": "^0.4.1",
+    "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "@types/styled-components": "^5.1.26",
