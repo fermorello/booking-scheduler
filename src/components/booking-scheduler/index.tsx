@@ -20,7 +20,7 @@ interface BookingSchedulerProps {
 function BookingScheduler({ bookingData, totalWidth, hoursPerDay, startRangeDate, endRangeDate, onClick, bookingColors }: BookingSchedulerProps) {
   const tableWidth = useMemo(() => (totalWidth / (24 / range(0, 24, hoursPerDay).length)) - 70, []);
   const dimension = useMemo(() => (tableWidth) / range(0, 24, hoursPerDay).length, []);
-  const dates =   useMemo(() => getDatesInRange(new Date(moment(startRangeDate).format('YYYY/MM/DD')), new Date(moment(endRangeDate).format('YYYY/MM/DD'))), []);
+  const dates =   useMemo(() => getDatesInRange(new Date(moment(startRangeDate).format('YYYY/MM/DD')), new Date(moment(endRangeDate).format('YYYY/MM/DD'))), [startRangeDate, endRangeDate]);
   const config: Configuration = {
     columns: range(0, 24, hoursPerDay),
     totalWidth,
