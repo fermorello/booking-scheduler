@@ -9,5 +9,6 @@ export interface Configuration {
     endRangeDate: string;
     bookingColors: BookingColor;
     onBookingClick: (booking: Booking) => void;
+    onCellClick: (cell: any) => void;
     dimension: number;
 }

@@ -13,11 +13,12 @@ interface BookingSchedulerProps {
   startRangeDate: string;
   endRangeDate: string;
   bookingColors: { [key: string]: string}
-  onClick: (booking: Booking) => void;
+  onBookingClick?: (booking: Booking) => void;
+  onCellClick?: (cell: any) => void;
   bookingData: BookingData;
 }
 
-function BookingScheduler({ bookingData, totalWidth, hoursPerDay, startRangeDate, endRangeDate, onClick, bookingColors }: BookingSchedulerProps) {
+function BookingScheduler({ bookingData, totalWidth, hoursPerDay, startRangeDate, endRangeDate, onBookingClick, onCellClick, bookingColors }: BookingSchedulerProps) {
   const tableWidth = useMemo(() => (totalWidth / (24 / range(0, 24, hoursPerDay).length)) - 70, []);
   const dimension = useMemo(() => (tableWidth) / range(0, 24, hoursPerDay).length, []);
   const dates =   useMemo(() => getDatesInRange(new Date(moment(startRangeDate).format('YYYY/MM/DD')), new Date(moment(endRangeDate).format('YYYY/MM/DD'))), [startRangeDate, endRangeDate]);
@@ -29,7 +30,8 @@ function BookingScheduler({ bookingData, totalWidth, hoursPerDay, startRangeDate
     dates,
     startRangeDate,
     endRangeDate,
-    onBookingClick: (booking: Booking) => onClick(booking),
+    onBookingClick: (booking: Booking) => onBookingClick?.(booking),
+    onCellClick: (booking: Booking) => onCellClick?.(booking),
     bookingColors,
   }
   return (
