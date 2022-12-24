@@ -33,7 +33,7 @@ function BookingComponent(
           index={index}
           title={`Reserva ${reservation.id} - ${moment(reservation.startTime).format('DD/MM/YYYY HH:mm')} to ${moment(reservation.endTime).format('DD/MM/YYYY HH:mm')}`}
           columnHours={columnHours}
-          onClick={() => onBookingClick(reservation)}
+          onClick={() => onBookingClick?.(reservation)}
         >
           {reservation.id}
         </ReservationItem>

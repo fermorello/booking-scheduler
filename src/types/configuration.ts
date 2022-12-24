@@ -8,7 +8,7 @@ export interface Configuration {
     startRangeDate: string;
     endRangeDate: string;
     bookingColors: BookingColor;
-    onBookingClick: (booking: Booking) => void;
-    onCellClick: (cell: any) => void;
+    onBookingClick?: (booking: Booking) => void;
+    onCellClick?: (cell: any) => void;
     dimension: number;
 }
