@@ -22,7 +22,7 @@ function CanvasTable({ rows }: any) {
                   <GridTableCell
                     width={(tableWidth) / columns.length}
                     title={`${dates[dayIndex]} - ${columnIndex * (24 / columns.length)}hs`}
-                    onClick={() => onCellClick((24 / columns.length)*columnIndex)}
+                    onClick={() => onCellClick?.((24 / columns.length)*columnIndex)}
                   />
                 ))}
               </TableRow>

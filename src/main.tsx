@@ -5,7 +5,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BookingScheduler
+    {/* <BookingScheduler
       totalWidth={window.innerWidth}
       hoursPerDay={1}
       startRangeDate="2022-11-24"
@@ -16,6 +16,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         started: "#00c100db",
         complete: "#ff5722",
       }}
-    />
+    /> */}
   </React.StrictMode>
 );
