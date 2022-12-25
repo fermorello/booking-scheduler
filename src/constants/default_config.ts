@@ -10,9 +10,8 @@ export const default_config: Configuration = {
     dates: [],
     startRangeDate: moment().format('YYYY-MM-DD'),
     endRangeDate: moment().format('YYYY-MM-DD'),
-    bookingColors: {
-
-    },
+    bookingColors: {},
     onBookingClick: (booking: Booking) => console.log(booking),
     dimension: window.innerWidth/24,
+    language: 'es',
 }
