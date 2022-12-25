@@ -19,11 +19,11 @@ function ColumnsComponent() {
         {dates.map((day: Date) => (
           <TableWithProps tableWidth={tableWidth}>
             <DateColumn>
-              <TableHeading style={{ padding: '20px 0px' }}>{translate[String(moment(day).format('dd'))][language]} - {moment(day).format('DD/MM/YYYY')}</TableHeading>
+              <TableHeading padding="20px 0px">{translate[String(moment(day).format('dd'))][language]} - {moment(day).format('DD/MM/YYYY')}</TableHeading>
               {columns.length !== 1 && (
                 <TableHeading>
                   {columns.map((column: number) => (
-                    <TableHead style={{ width: `${(tableWidth) / columns.length}px`, padding: '0px', fontSize: '12px' }}>{column - 1}:00</TableHead>
+                    <TableHead width={(tableWidth) / columns.length} padding={0} fontSize={12}>{column - 1}:00</TableHead>
                   ))}
                 </TableHeading>
               )}
