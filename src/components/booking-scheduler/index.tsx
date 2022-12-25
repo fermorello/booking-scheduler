@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import BookingGrid from '../booking-grid';
 import { getDatesInRange } from '../../helpers/dates';
 import { range } from '../../helpers/numbers';
-import { Booking, BookingData } from '../../types';
+import { Booking, BookingData, Language } from '../../types';
 import { configuration } from '../../context'
 import { Configuration } from '../../types/configuration';
 
@@ -16,9 +16,10 @@ interface BookingSchedulerProps {
   onBookingClick?: (booking: Booking) => void;
   onCellClick?: (cell: any) => void;
   bookingData: BookingData;
+  language: Language;
 }
 
-function BookingScheduler({ bookingData, totalWidth, hoursPerDay, startRangeDate, endRangeDate, onBookingClick, onCellClick, bookingColors }: BookingSchedulerProps) {
+function BookingScheduler({ bookingData, totalWidth, hoursPerDay, startRangeDate, endRangeDate, onBookingClick, onCellClick, bookingColors, language }: BookingSchedulerProps) {
   const tableWidth = useMemo(() => (totalWidth / (24 / range(0, 24, hoursPerDay).length)) - 70, []);
   const dimension = useMemo(() => (tableWidth) / range(0, 24, hoursPerDay).length, []);
   const dates =   useMemo(() => getDatesInRange(new Date(moment(startRangeDate).format('YYYY/MM/DD')), new Date(moment(endRangeDate).format('YYYY/MM/DD'))), [startRangeDate, endRangeDate]);
@@ -33,6 +34,7 @@ function BookingScheduler({ bookingData, totalWidth, hoursPerDay, startRangeDate
     onBookingClick: (booking: Booking) => onBookingClick?.(booking),
     onCellClick: (booking: Booking) => onCellClick?.(booking),
     bookingColors,
+    language,
   }
   return (
     <configuration.Provider value={config}>

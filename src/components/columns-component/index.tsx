@@ -9,7 +9,8 @@ function ColumnsComponent() {
   const {
     columns,
     tableWidth,
-    dates
+    dates,
+    language
   } = useConfiguration();
   return (
     <HeaderContainer>
@@ -18,7 +19,7 @@ function ColumnsComponent() {
         {dates.map((day: Date) => (
           <TableWithProps tableWidth={tableWidth}>
             <DateColumn>
-              <TableHeading style={{ padding: '20px 0px' }}>{translate[String(moment(day).format('dd'))].es} - {moment(day).format('DD/MM/YYYY')}</TableHeading>
+              <TableHeading style={{ padding: '20px 0px' }}>{translate[String(moment(day).format('dd'))][language]} - {moment(day).format('DD/MM/YYYY')}</TableHeading>
               {columns.length !== 1 && (
                 <TableHeading>
                   {columns.map((column: number) => (

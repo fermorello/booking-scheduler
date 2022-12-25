@@ -1,4 +1,4 @@
-import { Booking, BookingColor, Column } from ".";
+import { Booking, BookingColor, Column, Language } from ".";
 
 export interface Configuration {
     columns: Column;
@@ -11,4 +11,5 @@ export interface Configuration {
     onBookingClick?: (booking: Booking) => void;
     onCellClick?: (cell: any) => void;
     dimension: number;
+    language: Language;
 }

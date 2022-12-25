@@ -1,3 +1,4 @@
+
 export type DateString = string;
 
 type Status = 'ACTIVE' | 'STARTED' | 'COMPLETE' | null | string;
@@ -20,3 +21,5 @@ export type Column = number[];
 export interface BookingColor {
   [key: string]: string;
 }
+
+export type Language = 'es' | 'en';
