@@ -6,7 +6,6 @@ function useBooking({ reservation }: any) {
   const {
     startRangeDate,
     endRangeDate,
-    columns: columnHours,
   } = useConfiguration();
 
   const dateDiffStart = dateDifference(reservation.startTime, moment(startRangeDate).format('YYYY/MM/DD HH:mm:ss'), 'days', true);
@@ -17,9 +16,11 @@ function useBooking({ reservation }: any) {
   if (dateDiffStart < 0) obj.duration = durationBetweenTwoDatesInHours(moment(startRangeDate).format('YYYY/MM/DD HH:mm:ss'), reservation.endTime);
   if (dateDiffEnd > 1) obj.duration = durationBetweenTwoDatesInHours(moment(endRangeDate).format('YYYY/MM/DD HH:mm:ss'), reservation.endTime);
   if (dateDiffStart >= 0 && dateDiffEnd <= 1) obj.duration = durationBetweenTwoDatesInHours(reservation.startTime, reservation.endTime);
-  if (dateDiffStart < 0 && dateDiffEnd > 1) obj.duration = columnHours.length;
+  if (dateDiffStart < 0 && dateDiffEnd > 1) {
+    const diff = durationBetweenTwoDatesInHours(moment(startRangeDate).format('YYYY/MM/DD HH:mm:ss'), moment(endRangeDate).format('YYYY/MM/DD HH:mm:ss'));
+    obj.duration = diff === 0 ? 24 : diff;
+  }
   if (dateDiffStart > 0 && dateDiffEnd > 1) obj.duration = durationBetweenTwoDatesInHours(reservation.startTime, moment(endRangeDate).set({ 'hour': 23, 'minutes': 59 }).format('YYYY-MM-DDTHH:mm'));
-
   return obj;
 }
 

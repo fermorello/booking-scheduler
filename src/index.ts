@@ -1,1 +1,2 @@
-export * from './components';
+export { BookingScheduler } from './components';
+export * from './types';
