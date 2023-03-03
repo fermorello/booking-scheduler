@@ -20,8 +20,7 @@ function BookingComponent(
   } = useConfiguration();
   const columnHours = useMemo(() => columns?.length, []);
   const xPosition = useBooking({ reservation });
-
-  return (
+    return (
     <>
       {xPosition?.duration > 0 && (
         <ReservationItem
