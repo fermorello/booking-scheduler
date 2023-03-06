@@ -13,6 +13,6 @@ export const GridTableCell = styled(TableCell)<GridTableCellProps>`
   box-sizing: border-box;
   cursor: pointer;
   &:hover {
-    background-color: grey;
+    background-color: #80808024;
   }
 `;

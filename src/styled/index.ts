@@ -12,7 +12,7 @@ interface ITableWithProps {
 
 export const TableWithProps = styled(Table)<ITableWithProps>`
   width: ${({ tableWidth }) => `${tableWidth}px`};
-  border-left: 2px solid grey;
+  border-left: 2px solid #80808045;
   box-sizing: border-box;
 `;
 
@@ -37,15 +37,15 @@ interface TableHeadProps {
 
 export const TableHead = styled.th<TableHeadProps>`
   display: table-cell;
-  width: ${({ width }) => `${width}px`}
-  padding: ${({ padding }) => `${padding}px`}
-  font-size: ${({ fontSize }) => `${fontSize}px`}
+  width: ${({ width }) => `${width}px`};
+  padding: ${({ padding }) => `${padding}px`};
+  font-size: ${({ fontSize }) => `${fontSize}px`};
 `;
 
 export const TableCell = styled.td`
   display: table-cell;
   &:hover {
-    background-color: s#ddd;
+    background-color: #ddd;
   }
 `;
 
