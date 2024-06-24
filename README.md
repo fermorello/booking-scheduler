@@ -30,12 +30,13 @@ This project, named `bookings-scheduler`, provides a basic bookings scheduling s
 To start the development server:
 ```bash
 npm run dev
-
+```
 ### Build
+
 To build the project:
 ```bash
 npm run build
-
+```
 ## Dependencies
 ### Main Dependencies:
 
